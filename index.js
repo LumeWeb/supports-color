@@ -152,7 +152,7 @@ function _supportsColor(haveStream, {streamIsTTY, sniffFlags = true} = {}) {
 	return min;
 }
 
-export function createSupportsColor(stream, options = {}) {
+function createSupportsColor(stream, options = {}) {
 	const level = _supportsColor(stream, {
 		streamIsTTY: stream && stream.isTTY,
 		...options,
@@ -166,4 +166,7 @@ const supportsColor = {
 	stderr: createSupportsColor({isTTY: tty.isatty(2)}),
 };
 
-exports = supportsColor
+exports = {
+	default: supportsColor,
+	createSupportsColor
+}
