@@ -1,6 +1,6 @@
-import process from 'node:process';
-import os from 'node:os';
-import tty from 'node:tty';
+const process = require("process");
+const os = require("os");
+const tty = require("tty");
 
 // From: https://github.com/sindresorhus/has-flag/blob/main/index.js
 function hasFlag(flag, argv = process.argv) {
@@ -166,4 +166,4 @@ const supportsColor = {
 	stderr: createSupportsColor({isTTY: tty.isatty(2)}),
 };
 
-export default supportsColor;
+exports = supportsColor
